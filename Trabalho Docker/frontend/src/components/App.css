@@ -1,0 +1,21 @@
+.App {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.movieContainer {
+  width: 33%;
+  padding: 0px 4rem;
+}
+.showContainer {
+  width: 33%;
+  padding: 0px 4rem;
+}
+.compareContainer {
+  width: 34%;
+  padding: 0px 4rem;
+}
+
+.Error {
+  color: red;
+}

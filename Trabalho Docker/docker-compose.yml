@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  frontend:
+    depends_on:
+      - backend
+    build: ./frontend
+    ports:
+      - 80:3000
+
+  backend:
+    depends_on:
+      - db-alimentos
+      - db-bebidas
+    build: ./backend
+    ports:
+      - 4001:4001
+    command: ./docker-entrypoint.sh
+
+  db-alimentos:
+    image: mongo:4.0-xenial
+    ports:
+      - 27017:27017
+    volumes:
+      - volume1:/data/db
+
+  db-bebidas:
+    image: mongo:4.0-xenial
+    ports:
+      - 27018:27017
+    volumes:
+      - volume2:/data/db
+
+volumes:
+  volume2:
+    driver: local
+  volume1:
+    driver: local
